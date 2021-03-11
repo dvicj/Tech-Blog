@@ -1,6 +1,6 @@
 const router = require('express').Router(); 
 const { User, Post, Vote } = require('../../models');
-const withAuth = require('../utils/auth');
+const withAuth = require('../../utils/auth');
 
 //13.1.6 - GET /api/users
 router.get('/', withAuth, (req,res) => {
