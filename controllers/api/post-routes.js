@@ -1,20 +1,17 @@
-  
 const router = require('express').Router();
-const { Post, User, Vote, Comment } = require('../../models');
+const { Post, User, Comment } = require('../../models');
 const sequelize = require('../../config/connection');
 const withAuth = require('../../utils/auth');
 
-//13.3.6 - get all posts 
-router.get('/', withAuth, (req,res) => {
-    console.log('===================');
+//get all posts 
+router.get('/', (req,res) => {
     Post.findAll({
       order: [['created_at', 'DESC']],
       attributes: [
           'id', 
-          'body', 
           'title', 
           'created_at',
-          [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
+          'post_content'
         ],
         include: [
           {
@@ -44,17 +41,16 @@ router.get('/', withAuth, (req,res) => {
     });
 });
 
-router.get('/:id', withAuth, (req, res) => {
+router.get('/:id', (req, res) => {
     Post.findOne({
       where: {
         id: req.params.id
       },
       attributes: [
-          'id', 
-          'body', 
+          'id',
           'title', 
           'created_at',
-          [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
+          'post_content'
         ],
       include: [
         {
@@ -85,10 +81,9 @@ router.get('/:id', withAuth, (req, res) => {
 });
 
 router.post('/', withAuth, (req, res) => {
-    // expects {title: 'Taskmaster goes public!', body: 'https://taskmaster.com/press', user_id: 1}
     Post.create({
       title: req.body.title,
-      body: req.body.body,
+      body: req.body.post_content,
       user_id: req.session.user_id
     })
       .then(dbPostData => res.json(dbPostData))
@@ -98,24 +93,11 @@ router.post('/', withAuth, (req, res) => {
       });
 });
 
-//13.4.4 - PUT api/posts/upvote - 13.4.6 edited
-router.put('/upvote', withAuth, (req, res) => {
-  // make sure the session exists first
-  if (req.session) {
-    // pass session id along with all destructured properties on req.body
-    Post.upvote({ ...req.body, user_id: req.session.user_id }, { Vote, Comment, User })
-      .then(updatedVoteData => res.json(updatedVoteData))
-      .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-      });
-  }
-});
-
 router.put('/:id', withAuth, (req, res) => {
     Post.update(
       {
-        title: req.body.title
+        title: req.body.title,
+        post_content: req.body.post_content
       },
       {
         where: {
