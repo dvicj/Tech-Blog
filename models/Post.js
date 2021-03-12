@@ -17,12 +17,9 @@ Post.init(
         type: DataTypes.STRING,
         allowNull: false
       },
-      post_url: {
+      body: {
         type: DataTypes.STRING,
         allowNull: false,
-        validate: {
-          isURL: true
-        }
       },
       user_id: { //foreign key - connected to primary key
         type: DataTypes.INTEGER,
