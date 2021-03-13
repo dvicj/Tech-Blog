@@ -5,24 +5,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Your Tech Blog!</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Turret+Road:wght@300;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 
 <body>
   <div class="wrapper">
     <header>
-      <h1>
-        <a href="/">...a tech blog...</a>
+      <h1 class="blog-title">
+        <a href="/">xxx a tech blog xxx</a>
       </h1>
       <nav>
         {{#if loggedIn}}
-        <a href="/">...homepage...</a>
-        <a href="/dashboard">...dashboard...</a>
-        <a href="/dashboard/create">...create post...</a>
-        <button id="logout">logout</button>
+        <a href="/">xxx homepage xxx</a>
+        <a href="/dashboard">xxx dashboard xxx</a>
+        <a href="/dashboard/create">xxx create post xxx</a>
+        <button id="logout">xxx logout xxx</button>
         {{else}}
-        <a href="/">...homepage...</a>
-        <a href="/login">...login...</a>
+        <a class="nav-buttons" href="/">xxx homepage xxx</a>
+        <a class="nav-buttons" href="/login">xxx login xxx</a>
         {{/if}}
       </nav>
     </header>
@@ -32,8 +34,7 @@
     </main>
 
     <footer>
-      <p>Thanks for visiting this ~ tech blog ~ </p>
-      <a href="mailto:devinvjones@gmail.com">...email me...</a>
+      <p>Thanks for visiting this ~ tech blog ~ <a href="mailto:devinvjones@gmail.com"> xxx email me xxx </a> </p>
     </footer>
   </div>
   {{#if loggedIn}}
