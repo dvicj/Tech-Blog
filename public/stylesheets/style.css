@@ -55,3 +55,27 @@ a:hover {
     border-radius: 10px;
 }
 
+/* login page */
+.login-info, .signup-info{
+    color: white;
+    font-size: 20px; 
+    margin: 20px; 
+    padding: 10px; 
+    font-family: 'Turret Road', cursive;
+    font-weight: 500;
+}
+
+button {
+    font-size: 20px; 
+    margin: 20px; 
+    padding: 10px; 
+    font-family: 'Turret Road', cursive;
+    font-weight: 500;
+    background-color:purple; 
+    border-radius: 10px;
+}
+
+button:hover {
+    background-color: lime;
+}
+
