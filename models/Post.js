@@ -17,15 +17,15 @@ Post.init(
         type: DataTypes.STRING,
         allowNull: false
       },
-      body: {
+      post_content: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      user_id: { //foreign key - connected to primary key
+      user_id: { 
         type: DataTypes.INTEGER,
-        references: { //establish link between post and user 
+        references: { 
           model: 'user',
-          key: 'id' //primary key - connected to foreign key 
+          key: 'id' 
         }
       }
     },

@@ -10,31 +10,14 @@ Post.belongsTo(User, { //one to one
     foreignKey: 'user_id',
 });
 
-User.belongsToMany(Post, { //many to many 
+Comment.belongsTo(User, { //many to many 
     foreignKey: 'user_id'
 });
   
-Post.belongsToMany(User, { //many to many 
+Comment.belongsTo(Post, { //many to many 
     foreignKey: 'post_id'
 });
 
-Vote.belongsTo(User, {
-    foreignKey: 'user_id'
-});
-  
-Vote.belongsTo(Post, {
-    foreignKey: 'post_id'
-});
-  
-
-Comment.belongsTo(User, {
-    foreignKey: 'user_id'
-});
-  
-Comment.belongsTo(Post, {
-    foreignKey: 'post_id'
-});
-  
 User.hasMany(Comment, {
     foreignKey: 'user_id'
 });
@@ -42,6 +25,6 @@ User.hasMany(Comment, {
 Post.hasMany(Comment, {
     foreignKey: 'post_id'
 });
-
+  
 
 module.exports = { User, Post, Comment };
