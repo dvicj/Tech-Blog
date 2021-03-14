@@ -10,9 +10,6 @@ a:link, a:visited {
     text-decoration: none;
     color: white; 
 }
-a:hover {
-    text-transform: uppercase;
-}
 .post-title {
     font-size: 25px;
     font-family: 'Turret Road', cursive;
@@ -28,25 +25,17 @@ a:hover {
     font-weight: 500;
     text-shadow: 2px 2px 1px lime;
 }
-.nav-buttons {
-    font-size: 20px; 
-    padding: 10px; 
-    font-family: 'Turret Road', cursive;
-    font-weight: 500;
-    background-color: purple; 
-    border-radius: 10px;
-}
 .post-content {
     background-color: lime;
     font-size: 19px;
-    padding: 5px; 
+    padding: 10px; 
     margin: 5px; 
     border-radius: 10px;
 }
 .post-content:hover {
     text-transform: none;
 }
-.post-info, footer{
+.post-info{
     background-color: purple; 
     font-size: 17px; 
     font-style: italic;
@@ -54,9 +43,19 @@ a:hover {
     text-indent: 20px;
     border-radius: 10px;
     text-align: right;
+    padding: 10px; 
+    margin: 10px; 
 }
 
-/* login page */
+footer {
+    background-color: purple; 
+    font-size: 17px; 
+    font-style: italic;
+    font-weight: bolder;
+    border-radius: 10px;
+    text-align: right;
+}
+
 .login-info, .signup-info, .create-info, .edit-info{
     color: white;
     font-size: 20px; 
@@ -80,7 +79,7 @@ button:hover {
     background-color: lime;
 }
 
-/* single post page */ 
+
 .comment {
     background-color: purple; 
     font-size: 17px; 
@@ -106,9 +105,7 @@ h6 {
 .textarea, textarea {
     height: 50px; 
     width: 75%; 
-    margin: 10px; 
 }
-
 
 .post-title {
     width: 75%; 

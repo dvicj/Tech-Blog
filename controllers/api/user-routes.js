@@ -2,9 +2,8 @@ const router = require('express').Router();
 const { User, Post, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-// GET /api/users
+//GET all users 
 router.get('/', (req, res) => {
-    // Access our User model and run .findAll() method
     User.findAll({
         attributes: { exclude: ['password'] }
     })
@@ -13,9 +12,9 @@ router.get('/', (req, res) => {
         console.log(err);
         res.status(500).json(err);
       });
-  });
+});
 
-// GET /api/users/1
+//GET user by id
 router.get('/:id', (req, res) => {
     User.findOne({
         attributes: { exclude: ['password']},
@@ -49,9 +48,9 @@ router.get('/:id', (req, res) => {
         console.log(err);
         res.status(500).json(err);
       });
-  });
+});
 
-// POST /api/users
+//POST new user 
 router.post('/', (req, res) => {
     User.create({
       username: req.body.username,
@@ -66,10 +65,10 @@ router.post('/', (req, res) => {
         res.json(dbUserData);
       });
     });
-  });
+});
 
-  // LOGIN
-  router.post('/login', (req, res) => {
+// LOGIN
+router.post('/login', (req, res) => {
     User.findOne({
       where: {
         email: req.body.email
@@ -96,10 +95,10 @@ router.post('/', (req, res) => {
         res.json({ user: dbUserData, message: 'You are now logged in!' });
       });
     });
-  });
+});
 
-
-  router.post('/logout', (req, res) => {
+//LOGOUT
+router.post('/logout', (req, res) => {
     if (req.session.loggedIn) {
       req.session.destroy(() => {
         res.status(204).end();
@@ -108,9 +107,9 @@ router.post('/', (req, res) => {
     else {
       res.status(404).end();
     }
-  });
+});
 
-// PUT /api/users/1
+//PUT user by id, authenticated users only
 router.put('/:id', withAuth, (req, res) => {
     User.update(req.body, {
         individualHooks: true,
@@ -131,7 +130,7 @@ router.put('/:id', withAuth, (req, res) => {
       });
   });
 
-// DELETE /api/users/1
+//DELETE users by id, authenticated users only
 router.delete('/:id', withAuth, (req, res) => {
     User.destroy({
       where: {
@@ -149,6 +148,6 @@ router.delete('/:id', withAuth, (req, res) => {
         console.log(err);
         res.status(500).json(err);
       });
-  });
+});
 
 module.exports = router;

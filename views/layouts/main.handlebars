@@ -4,10 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Tech Blog!</title>
+  <link rel="icon" type="img/png" href="../../public/images/favicon-image.png">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Turret+Road:wght@300;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/stylesheets/style.css">
+  <title>xxx a tech blog xxx</title>
 </head>
 
 <body>
@@ -18,13 +19,13 @@
       </h1>
       <nav>
         {{#if loggedIn}}
-        <a class ="nav-buttons" href="/">xxx homepage xxx</a>
-        <a class="nav-buttons" href="/dashboard">xxx dashboard xxx</a>
-        <a class="nav-buttons" href="/dashboard/create">xxx create post xxx</a>
+        <a href="/"><button>xxx homepage xxx </button></a>
+        <a href="/dashboard"><button>xxx dashboard xxx</button></a>
+        <a href="/dashboard/create"><button>xxx create post xxx</button></a>
         <button id="logout">xxx logout xxx</button>
         {{else}}
-        <a class="nav-buttons" href="/">xxx homepage xxx</a>
-        <a class="nav-buttons" href="/login">xxx login xxx</a>
+        <a href="/"><button>xxx homepage xxx</button></a>
+        <a href="/login"><button>xxx login xxx</button></a>
         {{/if}}
       </nav>
     </header>

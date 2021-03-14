@@ -5,13 +5,13 @@ class Comment extends Model {}
 
 Comment.init(
     {
-    id: {
+    id: { //how the comment will be indentified 
       type: DataTypes.INTEGER,
       allowNull: false, 
       primaryKey: true,
       autoIncrement: true
     },
-    user_id: {
+    user_id: { //the id of the user who left the comment 
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
@@ -19,7 +19,7 @@ Comment.init(
           key: 'id'
       }
     },
-    post_id: {
+    post_id: { //the id of the post the comment was left on 
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
@@ -27,7 +27,7 @@ Comment.init(
         key: 'id'
       }
     },
-    comment_text: {
+    comment_text: { //the text of the comment, validate to ensure comment has atleast 1 character 
         type: DataTypes.STRING,
         allowNull: false,
         validate: {

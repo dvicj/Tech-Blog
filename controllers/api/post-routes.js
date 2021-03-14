@@ -3,7 +3,7 @@ const { Post, User, Comment } = require('../../models');
 const sequelize = require('../../config/connection');
 const withAuth = require('../../utils/auth');
 
-// get all users
+//GET all posts
 router.get('/', (req, res) => {
     Post.findAll({
         attributes: [
@@ -14,7 +14,6 @@ router.get('/', (req, res) => {
         ],
       order: [['created_at', 'DESC']],
       include: [
-        // Comment model here -- attached username to comment
         {
           model: Comment,
           attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
@@ -34,9 +33,10 @@ router.get('/', (req, res) => {
         console.log(err);
         res.status(500).json(err);
       });
-  });
+});
 
-  router.get('/:id', (req, res) => {
+//GET post by id 
+router.get('/:id', (req, res) => {
     Post.findOne({
       where: {
         id: req.params.id
@@ -48,7 +48,6 @@ router.get('/', (req, res) => {
         'post_content'
       ],
       include: [
-        // include the Comment model here:
         {
           model: User,
           attributes: ['username', 'twitter', 'github']
@@ -74,8 +73,9 @@ router.get('/', (req, res) => {
         console.log(err);
         res.status(500).json(err);
       });
-  });
+});
 
+//POST post, authenticated users only 
 router.post('/', withAuth, (req, res) => {
     Post.create({
       title: req.body.title,
@@ -89,6 +89,7 @@ router.post('/', withAuth, (req, res) => {
       });
 });
 
+//PUT post by id, authenticated users only 
 router.put('/:id', withAuth, (req, res) => {
     Post.update({
         title: req.body.title,
@@ -110,9 +111,10 @@ router.put('/:id', withAuth, (req, res) => {
         console.log(err);
         res.status(500).json(err);
       });
-  });
+});
 
-  router.delete('/:id', withAuth, (req, res) => {
+//DELETE post by id, authenticated users only 
+router.delete('/:id', withAuth, (req, res) => {
     Post.destroy({
       where: {
         id: req.params.id
@@ -129,6 +131,6 @@ router.put('/:id', withAuth, (req, res) => {
         console.log(err);
         res.status(500).json(err);
       });
-  });
+});
 
   module.exports = router;
