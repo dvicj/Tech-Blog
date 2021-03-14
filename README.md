@@ -2,7 +2,7 @@
 
 Hello, and welcome to my README! This is for my Week 14 Challenge, which was to create a CMS-style Tech Blog. I learned a lot while doing this, and I am happy to be able to share my experience with you.
 
-[a tech blog](https://git.heroku.com/enigmatic-fortress-14206.git)
+[a tech blog](https://enigmatic-fortress-14206.herokuapp.com/)
 
 ![finished html](https://github.com/dvicj/Tech-Blog/blob/main/public/images/xxx-a-tech-blog-xxx.png)
 
@@ -58,7 +58,7 @@ The user must clone all filed from this repo. It is important that the location 
 
 2. If the user would like to open the application on any web browser: 
 
-- The app is also deployed on [Heroku](https://git.heroku.com/enigmatic-fortress-14206.git), and can be accessed from anywhere. 
+- The app is also deployed on [Heroku](https://enigmatic-fortress-14206.herokuapp.com/), and can be accessed from anywhere. 
 
 ## Usage
 Here are some user experience highlights from my page:
@@ -99,6 +99,7 @@ These are some sources I used to help me along:
 - [bcrypt](https://www.npmjs.com/package/bcrypt)
 - [express-session](https://www.npmjs.com/package/express-session)
 - [connect-session-sequelize](https://www.npmjs.com/package/connect-session-sequelize)
+- [JAWSDB](https://devcenter.heroku.com/articles/jawsdb#:~:text=JawsDB%20is%20an%20add%2Don,Facebook%2C%20Twitter%2C%20and%20Youtube.)
 - [400 Bad Request Error](https://airbrake.io/blog/http-errors/400-bad-request)
 - [Lorem Ipsum Generator](https://www.lipsum.com/)
 - [Change cookie expiration in Express](https://stackoverflow.com/questions/14049294/change-cookie-expiration-in-express)
